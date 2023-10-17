@@ -19,8 +19,8 @@ const userSchema = new mongoose.Schema({
   password: String
 });
 
-const secret = "Thisisourlittlesecret.";
-userSchema.plugin(encrypt, { secret: secret, encryptedFields: ['password'] });
+// const secret = "Thisisourlittlesecret.";
+// userSchema.plugin(encrypt, { secret: secret, encryptedFields: ['password'] });
 
 
 const User = new mongoose.model("User", userSchema);
@@ -60,7 +60,7 @@ app.post("/login", function(req, res){
     if(foundUser){
       if(foundUser.password === password){
         res.render("secrets");
-        console.log(foundUser.password);
+        // console.log(foundUser.password);
       }
     }
   }).catch(err=>{
